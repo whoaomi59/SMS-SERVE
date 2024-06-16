@@ -1,24 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const apiUrl = "http://localhost:5000/messages";
 
 export default function Form() {
-  // Estado para los mensajes
-  const [messages, setMessages] = useState([
-    { text: "Hello, you friends", sender: "other" },
-    { text: "Yes, my friends", sender: "self" },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  // Maneja el cambio en el input
+  useEffect(() => {
+    // Obtiene los mensajes del servidor
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        setMessages(response.data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los mensajes:", error);
+      });
+  }, []);
+
   const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  // Maneja el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.trim()) {
-      setMessages([...messages, { text: input, sender: "self" }]);
-      setInput("");
+      const newMessage = { text: input, sender: "self" };
+      axios
+        .post(apiUrl, newMessage)
+        .then((response) => {
+          setMessages([...messages, response.data]);
+          setInput("");
+        })
+        .catch((error) => {
+          console.error("Error al enviar el mensaje:", error);
+        });
     }
   };
 
