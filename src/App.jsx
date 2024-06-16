@@ -3,13 +3,14 @@ import "./App.css";
 import Form from "./components/form";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const seccion = localStorage.getItem("id");
+  console.log("🚀 ~ App ~ seccion:", seccion);
 
   return (
     <div className="conter-sms">
       <div className="box-sms">
         <h1>Anonymous</h1>
-        <Form />
+        <Form seccion={seccion} />
       </div>
     </div>
   );

@@ -40,18 +40,7 @@ form {
   margin: 5px;
 }
 
-.conter-sms-respo {
-  display: block;
-  position: relative;
-}
-
 .conter-sms-respo div {
-  padding: 5px;
-  margin: 5px;
-  background-color: #fff;
-  border-radius: 5px;
-  position: relative;
-  width: 50%;
   color: black;
 }
 .btn {
