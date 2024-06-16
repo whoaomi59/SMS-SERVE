@@ -1,42 +1,67 @@
-#root {
-  max-width: 1280px;
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: black;
+  color: greenyellow;
+}
+
+.conter-sms {
+  padding: 5px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.box-sms {
+  background-color: gray;
   margin: 0 auto;
-  padding: 2rem;
+  width: 50%;
+  border-radius: 5px;
+}
+
+h1 {
   text-align: center;
+  font-weight: 600;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.conter-sms-respo {
+  display: block;
+  position: relative;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.conter-sms-respo div {
+  padding: 5px;
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  width: 50%;
+  color: black;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  background: greenyellow;
+  color: rgba(56, 59, 52, 0.637);
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.check-text {
+  width: 100%;
+  padding: 5px;
+  border: none;
 }
