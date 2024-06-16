@@ -7,6 +7,9 @@
 body {
   background: black;
   color: greenyellow;
+  background-image: url("https://i.pinimg.com/originals/38/1c/63/381c630b05c0e00afe8f986acb8658b6.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .conter-sms {
@@ -19,7 +22,7 @@ body {
 }
 
 .box-sms {
-  background-color: gray;
+  background-color: #0000006e;
   margin: 0 auto;
   width: 50%;
   border-radius: 5px;
@@ -28,6 +31,7 @@ body {
 h1 {
   text-align: center;
   font-weight: 600;
+  margin: 5px;
 }
 form {
   display: flex;

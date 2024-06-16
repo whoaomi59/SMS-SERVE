@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="conter-sms">
       <div className="box-sms">
-        <h1>SMS</h1>
+        <h1>Anonymous</h1>
         <Form />
       </div>
     </div>
