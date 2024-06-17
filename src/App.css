@@ -6,7 +6,6 @@
 
 body {
   background: black;
-  color: rgb(130, 179, 57);
   background-image: url("https://i.pinimg.com/originals/38/1c/63/381c630b05c0e00afe8f986acb8658b6.gif");
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,12 +17,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
+  height: 80vh;
 }
 
 .box-sms {
   background-color: #0000006e;
-  margin: 0 auto;
   width: 50%;
   border-radius: 5px;
 }
@@ -31,7 +29,9 @@ body {
 h1 {
   text-align: center;
   font-weight: 600;
-  margin: 5px;
+  margin-top: 40px;
+  font-size: 3em;
+  color: #fff;
 }
 form {
   display: flex;
@@ -91,12 +91,13 @@ form {
 
 .check-text {
   width: 100%;
-  padding: 10px;
+  padding: 6px;
   margin-right: 5px;
+  border-radius: 5px;
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 6px 20px;
   background-color: #ff0000ad;
   color: white;
   border: none;

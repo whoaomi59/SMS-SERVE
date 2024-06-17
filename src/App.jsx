@@ -9,7 +9,11 @@ function App() {
   return (
     <div className="conter-sms">
       <div className="box-sms">
-        <h1>Anonymous</h1>
+        <div className="flex">
+          <div>
+            <h1>Facelack</h1>
+          </div>
+        </div>
         <Form seccion={seccion} />
       </div>
     </div>

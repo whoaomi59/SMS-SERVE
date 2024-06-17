@@ -26,28 +26,26 @@ export default function Form({ seccion }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim()) {
-      const newMessage = { text: input, sender: "self", id_user: seccion };
-      axios
-        .post(apiUrl, newMessage)
-        .then((response) => {
-          setMessages([...messages, response.data]);
-          setInput("");
-        })
-        .catch((error) => {
-          console.error("Error al enviar el mensaje:", error);
-        });
-    }
+    const newMessage = { text: input, user_id: seccion };
+    axios
+      .post(apiUrl, newMessage)
+      .then((response) => {
+        setMessages([...messages, response.data]);
+        setInput("");
+      })
+      .catch((error) => {
+        console.error("Error al enviar el mensaje:", error);
+      });
   };
 
-  const Validate = ({ data }) => {
+  const Validate = ({ data, index }) => {
     if (data.user_id == seccion) {
       return (
         <div
           class="self-end rounded-lg p-2s"
-          key={data.user_id}
+          key={index}
           style={{
-            background: data.color,
+            background: "rgb(166 255 0)",
             padding: "7px",
           }}
         >
@@ -62,10 +60,9 @@ export default function Form({ seccion }) {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
               style={{
-                width: "20px",
-                height: "20px",
-                fontWeight: "900",
-                color: "green",
+                width: "30px",
+                height: "30px",
+                color: "#029f02",
                 float: "right",
                 marginLeft: "20px",
               }}
@@ -73,7 +70,7 @@ export default function Form({ seccion }) {
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="m4.5 12.75 6 6 9-13.5"
+                d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
               ></path>
             </svg>
           </label>
@@ -83,9 +80,9 @@ export default function Form({ seccion }) {
       return (
         <div
           class="self-start  rounded-lg p-2s"
-          key={data.user_id}
+          key={index}
           style={{
-            background: data.color,
+            background: "#f0f0f0",
             padding: "7px",
           }}
         >
@@ -100,10 +97,10 @@ export default function Form({ seccion }) {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
               style={{
-                width: "20px",
-                height: "20px",
+                width: "30px",
+                height: "30px",
                 fontWeight: "900",
-                color: "green",
+                color: "#029f02",
                 float: "right",
                 marginLeft: "20px",
               }}
@@ -111,7 +108,7 @@ export default function Form({ seccion }) {
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="m4.5 12.75 6 6 9-13.5"
+                d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"
               ></path>
             </svg>
           </label>
@@ -126,7 +123,7 @@ export default function Form({ seccion }) {
         <div class="flex-grow overflow-y-auto">
           <div class="flex flex-col space-y-2 p-4">
             {messages.map((message, index) => (
-              <Validate data={message} />
+              <Validate data={message} index={index} />
             ))}
           </div>
         </div>
@@ -139,6 +136,13 @@ export default function Form({ seccion }) {
           onChange={handleChange}
         />
         <input type="submit" value="Enviar" className="btn" />
+        <div class="max-w-sm space-y-3">
+          <div>
+            <label for="hs-trailing-button-add-on-with-icon" class="sr-only">
+              Label
+            </label>
+          </div>
+        </div>
       </form>
     </div>
   );
