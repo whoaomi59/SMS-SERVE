@@ -9,15 +9,21 @@ export default function Form({ seccion }) {
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    // Obtiene los mensajes del servidor
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        setMessages(response.data);
-      })
-      .catch((error) => {
-        console.error("Error al obtener los mensajes:", error);
-      });
+    const fetchMessages = () => {
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          setMessages(response.data);
+        })
+        .catch((error) => {
+          console.error("Error al obtener los mensajes:", error);
+        });
+    };
+
+    fetchMessages(); // Llama inmediatamente para obtener los mensajes la primera vez
+    const intervalId = setInterval(fetchMessages, 7000); // Intervalo de 10 segundos
+
+    return () => clearInterval(intervalId); // Limpia el intervalo al desmontar el componente
   }, []);
 
   const handleChange = (e) => {
@@ -41,77 +47,48 @@ export default function Form({ seccion }) {
   const Validate = ({ data, index }) => {
     if (data.user_id == seccion) {
       return (
-        <div
-          class="self-end rounded-lg p-2s"
-          key={index}
-          style={{
-            background: "rgb(166 255 0)",
-            padding: "7px",
-          }}
-        >
-          <label>{data.text}</label>
-          <label>
-            <svg
-              data-slot="icon"
-              fill="none"
-              stroke-width="1.5"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              style={{
-                width: "30px",
-                height: "30px",
-                color: "#029f02",
-                float: "right",
-                marginLeft: "20px",
-              }}
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
-              ></path>
-            </svg>
-          </label>
+        <div class="self-end rounded-lg p-2s" key={index}>
+          <div>
+            <img src={data.img} alt={data.name} class="w-10 h-11" />
+            <div class="grid">
+              <h5 class="text-white text-sm font-semibold leading-snug pb-1">
+                {data.name}
+              </h5>
+              <div class=" grid">
+                <div class="px-3 py-1 bg-red-500 rounded justify-start  items-center gap-3 inline-flex">
+                  <label> {data.text}</label>
+                </div>
+                <div class="justify-end items-center inline-flex mb-2.5">
+                  <h6 class="text-white text-xs font-normal leading-4 py-1">
+                    {data.timestamp.toLocaleString()}
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
       return (
-        <div
-          class="self-start  rounded-lg p-2s"
-          key={index}
-          style={{
-            background: "#f0f0f0",
-            padding: "7px",
-          }}
-        >
-          <label>{data.text}</label>
-          <label>
-            <svg
-              data-slot="icon"
-              fill="none"
-              stroke-width="1.5"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              style={{
-                width: "30px",
-                height: "30px",
-                fontWeight: "900",
-                color: "#029f02",
-                float: "right",
-                marginLeft: "20px",
-              }}
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"
-              ></path>
-            </svg>
-          </label>
+        <div class="self-start  rounded-lg p-2s" key={index}>
+          <div>
+            <img src={data.img} alt={data.name} class="w-10 h-11" />
+            <div class="grid">
+              <h5 class="text-white text-sm font-semibold leading-snug pb-1">
+                {data.name}
+              </h5>
+              <div class=" grid">
+                <div class="px-3 py-1 bg-gray-100 rounded justify-start  items-center gap-3 inline-flex">
+                  <label> {data.text}</label>
+                </div>
+                <div class="justify-end items-center inline-flex mb-2.5">
+                  <h6 class="text-white text-xs font-normal leading-4 py-1">
+                    {data.timestamp}
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
