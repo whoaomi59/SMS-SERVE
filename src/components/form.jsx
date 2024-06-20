@@ -69,6 +69,7 @@ export default function Form({ seccion }) {
                     aria-hidden="true"
                     width="20px"
                     height="20px"
+                    margin="0px"
                   >
                     <path
                       stroke-linecap="round"
