@@ -58,7 +58,24 @@ export default function Form({ seccion }) {
               </h5>
               <div class=" grid">
                 <div class="px-3 py-1 rounded justify-start  items-center gap-3 inline-flex">
-                  <label> {data.text}</label>
+                  <label>{data.text}</label>
+                  <svg
+                    data-slot="icon"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    width="20px"
+                    height="20px"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 19.5 8.25 12l7.5-7.5"
+                    ></path>
+                  </svg>
                 </div>
                 <div class="justify-end items-center inline-flex mb-2.5">
                   <h6 class="text-white text-xs font-normal leading-4 py-1">
@@ -81,7 +98,24 @@ export default function Form({ seccion }) {
               </h5>
               <div class=" grid">
                 <div class="px-3 py-1  rounded justify-start  items-center gap-3 inline-flex">
-                  <label> {data.text}</label>
+                  <svg
+                    data-slot="icon"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    width="20px"
+                    height="20px"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                    ></path>
+                  </svg>
+                  <label>{data.text}</label>
                 </div>
                 <div class="justify-end items-center inline-flex mb-2.5">
                   <h6 class="text-white text-xs font-normal leading-4 py-1">
