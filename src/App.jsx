@@ -21,8 +21,40 @@ function App() {
             element={
               <div className="box-sms">
                 <div className="flex">
-                  <div>
-                    <h1>The Pirate</h1>
+                  <div className="conter-sms-respo">
+                    <div></div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div>IP Address:</div>
+                      <div
+                        style={{
+                          border: "1px solid #00ff00",
+                          padding: "5px",
+                        }}
+                      >
+                        205.211.157.84
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div>IP_ADDRESS | HOST_NAME</div>
+                      <div
+                        style={{
+                          border: "1px solid #00ff00",
+                          padding: "5px",
+                        }}
+                      >
+                        www.00000.net
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <Form seccion={seccion} />

@@ -2,11 +2,12 @@
   margin: 0px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  color: #00ff00;
 }
 
 body {
   background: black;
-  background-image: url("https://i.pinimg.com/originals/38/1c/63/381c630b05c0e00afe8f986acb8658b6.gif");
+  /*   background-image: url("https://i.pinimg.com/originals/55/e4/57/55e457846f295a4a9acb25253e197e6e.gif"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -40,9 +41,6 @@ form {
   margin: 5px;
 }
 
-.conter-sms-respo div {
-  color: black;
-}
 .btn {
   padding: 5px;
   border-radius: 5px;
@@ -68,7 +66,7 @@ form {
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #00ff00;
   padding: 10px;
 }
 
@@ -98,13 +96,14 @@ form {
 
 .btn {
   padding: 6px 20px;
-  background-color: #ff0000ad;
+  background-color: transparent;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  border: 1px solid #00ff00;
 }
 
 .btn:hover {
-  background-color: red;
+  background-color: #00ff0091;
 }

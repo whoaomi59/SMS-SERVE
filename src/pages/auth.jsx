@@ -7,13 +7,13 @@ export default function Auth() {
     setInput(e.target.value);
   };
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del formulario
+    e.preventDefault();
     try {
       if (!input) {
         return alert("ID: requiere!");
       }
       await localStorage.setItem("id", input);
-      window.location.href = "/QIbAnh0HPbfFFZN9t5FMq9uCIZ5bmvqLIkjopcY0JuQ"; // Redirige a la ruta '/sms'
+      window.location.href = "/QIbAnh0HPbfFFZN9t5FMq9uCIZ5bmvqLIkjopcY0JuQ";
     } catch (error) {
       alert(error);
     }

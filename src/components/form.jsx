@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const apiUrl = "http://localhost:5000/messages";
+const apiUrl = "https://smsanonymos.000webhostapp.com/serve.php/messages";
 
 export default function Form({ seccion }) {
-  console.log("🚀 ~ Form ~ seccion:", seccion);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
@@ -32,7 +31,10 @@ export default function Form({ seccion }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newMessage = { text: input, user_id: seccion };
+    const newMessage = JSON.stringify({
+      text: input,
+      user_id: parseInt(seccion),
+    });
     axios
       .post(apiUrl, newMessage)
       .then((response) => {
@@ -55,12 +57,12 @@ export default function Form({ seccion }) {
                 {data.name}
               </h5>
               <div class=" grid">
-                <div class="px-3 py-1 bg-red-500 rounded justify-start  items-center gap-3 inline-flex">
+                <div class="px-3 py-1 rounded justify-start  items-center gap-3 inline-flex">
                   <label> {data.text}</label>
                 </div>
                 <div class="justify-end items-center inline-flex mb-2.5">
                   <h6 class="text-white text-xs font-normal leading-4 py-1">
-                    {data.timestamp.toLocaleString()}
+                    {data.timestamp}
                   </h6>
                 </div>
               </div>
@@ -78,7 +80,7 @@ export default function Form({ seccion }) {
                 {data.name}
               </h5>
               <div class=" grid">
-                <div class="px-3 py-1 bg-gray-100 rounded justify-start  items-center gap-3 inline-flex">
+                <div class="px-3 py-1  rounded justify-start  items-center gap-3 inline-flex">
                   <label> {data.text}</label>
                 </div>
                 <div class="justify-end items-center inline-flex mb-2.5">
