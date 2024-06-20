@@ -108,3 +108,13 @@ form {
 .btn:hover {
   background-color: #00ff0091;
 }
+
+@media (max-width: 1200px) {
+  .conter-sms-respo {
+    width: 100%;
+  }
+  .box-sms {
+    width: 100%;
+    margin: 5px;
+  }
+}
