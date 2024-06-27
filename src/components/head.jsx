@@ -1,4 +1,31 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 export default function Head() {
+  const [online, setOnline] = useState(false);
+  const conexion = sessionStorage.getItem("conexion");
+  const [ip, setIP] = useState("");
+  const [city, setCity] = useState("");
+
+  useEffect(() => {
+    const Online = () => {
+      if (conexion == "true") {
+        setOnline(true);
+      } else {
+        setOnline(false);
+      }
+    };
+    Online();
+  }, []);
+
+  useEffect(() => {
+    axios.get("https://ipapi.co/json/").then((res) => {
+      console.log("🚀 ~ axios.get ~ res:", res);
+      setCity(res.data.city);
+      return setIP(res.data.ip);
+    });
+  }, []);
+
   return (
     <div className="conter-sms-respo">
       <div
@@ -28,10 +55,19 @@ export default function Head() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginBottom: "20px",
             }}
           >
             <div>THE PIRATE</div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <div>{online ? "Online" : "Offline"}</div>
           </div>
           <div
             style={{
@@ -52,7 +88,7 @@ export default function Head() {
                 padding: "5px",
               }}
             >
-              205.211.157.84
+              {ip}
             </div>
           </div>
           <div

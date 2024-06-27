@@ -12,8 +12,17 @@ export default function Auth() {
       if (!input) {
         return alert("ID: requiere!");
       }
+
+      if (input == "2") {
+        await sessionStorage.setItem("conexion", "true");
+      } else {
+        await sessionStorage.setItem("conexion", "false");
+      }
+
       await localStorage.setItem("id", input);
-      window.location.href = "/QIbAnh0HPbfFFZN9t5FMq9uCIZ5bmvqLIkjopcY0JuQ";
+
+      return (window.location.href =
+        "/QIbAnh0HPbfFFZN9t5FMq9uCIZ5bmvqLIkjopcY0JuQ");
     } catch (error) {
       alert(error);
     }
