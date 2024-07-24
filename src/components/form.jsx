@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { PaperAirplaneIcon, PhotoIcon } from "@heroicons/react/24/outline";
 
 const apiUrl = "https://smsanonymos.000webhostapp.com/serve.php/messages";
 
@@ -345,18 +346,31 @@ export default function Form({ seccion }) {
       </div>
       <form onSubmit={handleSubmit}>
         <input
-          type="file"
-          id="image"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
-        />
-        <input
           type="text"
           className="check-text"
           value={input}
           onChange={handleChange}
         />
-        <input type="submit" value="Enviar" className="btn" />
+        {/*        <input
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+        /> */}
+        <label for="uploadFile1" className="btn">
+          <PhotoIcon className="h-6 w-6" />
+
+          <input
+            type="file"
+            id="uploadFile1"
+            class="hidden"
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
+          />
+        </label>
+        <button type="submint" className="btn">
+          <PaperAirplaneIcon className="h-6 w-6 text-gray-500" />
+        </button>
       </form>
       <a
         href="https://expo.dev/artifacts/eas/jBPu94tsXP7wmszVAD6C7j.apk"
