@@ -43,7 +43,7 @@ export default function Head() {
           }}
         >
           <img
-            src="https://images.squarespace-cdn.com/content/v1/5f63c9ec0e46873b8b4710c4/d5ae9aa4-3e79-49b8-abf5-c4d4ec33b709/artificially-intelligent-hackers-gif.gif"
+            src="/img/pngfind.com-pirate-flag-png-2847145.png"
             alt="sms"
             width="100px"
             height="40px"
@@ -57,7 +57,7 @@ export default function Head() {
               justifyContent: "center",
             }}
           >
-            <div>THE PIRATE</div>
+            <div>SMS PIRATE</div>
           </div>
           <div
             style={{
